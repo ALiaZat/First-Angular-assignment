@@ -1,0 +1,14 @@
+<div style="text-align:center" class="list-group">
+    <h2>
+        Countries list in Palestine...
+    </h2>
+    <ul *ngFor="let c of jsonDataResult">
+       <li class="list-group-item list-group-item-action list-group-item-danger">
+          <h3>Country :   
+              <button class="btn btn-secondary">{{c.name}}</button>
+            </h3>
+       </li>
+    </ul>
+    <app-stations [country]="choosenCountry"></app-stations>
+
+</div>
