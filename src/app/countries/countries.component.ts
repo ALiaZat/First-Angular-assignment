@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import countries from '../../assets/json/countries.json';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-countries',
@@ -9,15 +9,21 @@ import countries from '../../assets/json/countries.json';
 export class CountriesComponent implements OnInit {
 
   
-  country: string = '';
-  choosenCountry: string = '';
-  jsonDataResult: any;
+  country: any;
+  choosenCountry: any;
 
-  public countryList:{name: string; }[] = countries;
-
+  constructor(private data: DataService) { }
   ngOnInit(): void {
-    this.jsonDataResult = countries;
-    console.log(this.jsonDataResult);
+    this.data.getCitiesAndStations().subscribe(d => {
+      this.country = d;
+      console.log(this.country);
+    });
+
   }
+  choose(value: any) {
+    this.choosenCountry = value;
+    console.log(this.choosenCountry);
+  }
+
 
 }

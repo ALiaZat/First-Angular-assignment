@@ -1,15 +1,29 @@
 [
-      {
-        "name": "Hebron",
-        "station":"Marah"
-      },
-      {
-        "name": "Ramallah",
-        "station":"Burj"   
-      },
-      {
-        "name": "Nablus",
-        "station":"Radio Nablus"
-      }
+	{
+		"name": "Hebron",
+		"stations": [
+			{
+				"stationName": "Marah",
+				"stationSrc": "http://alhaneny.com:8056/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true"
+			}
+		]
+	},
+	{
+		"name": "Ramallah",
+		"stations": [
+			{
+				"stationName": "Burj",
+				"stationSrc": "http://82.213.26.67:8000/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true"
+			}
+		]
+	},
+	{
+		"name": "Nablus",
+		"stations": [
+			{
+				"stationName": "Radio Nablus",
+				"stationSrc": "http://www.quran-radio.org:8002/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true"
+			}
+		]
+	}
 ]
-  

@@ -1,19 +1,18 @@
 <div style="text-align:center" class="list-group">
-    <div>
+    <div *ngIf="country!=undefined">
         <h2>
-            <button (click)='show = true' class="btn btn-secondary btn-lg">Click here to list all Radio Station in every country</button>
+            Stations list in {{ country.name }}
         </h2>
-        <ul *ngIf='show'>
-            <li class="list-group-item list-group-item-action list-group-item-warning">
-                <h3> Hebron Stations :   <iframe class="btn btn-secondary" src="http://alhaneny.com:8056/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true">Marah</iframe></h3>
-            </li>
-            <li class="list-group-item list-group-item-action list-group-item-warning">
-                <h3> Ramallah Stations :   <iframe class="btn btn-secondary" src="http://82.213.26.67:8000/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true">Burj</iframe></h3>
-            </li>
-            <li class="list-group-item list-group-item-action list-group-item-warning">
-                <h3> Nablus Stations :   <iframe class="btn btn-secondary" src="http://www.quran-radio.org:8002/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true" >Radio Nablus</iframe></h3>
-            </li>
+        <ul class="nav nav-pills ">
+            <li *ngFor="let station of country.stations " class="list-group-item list-group-item-action list-group-item-danger">
+                <h3>Stations : <button class="btn btn-secondary" (click)="chooseStation(station);">{{station.stationName}}</button></h3>
+        </li>
         </ul>
-        
+    </div>
+</div>
+<div class="main" *ngIf="selectedStation!=undefined">
+    <div>
+        <h1>{{selectedStation.name}}</h1>
+        <audio width="300" height="32" controls="controls" autoplay="autoplay" [src]="selectedStation.stationSrc"></audio>
     </div>
 </div>

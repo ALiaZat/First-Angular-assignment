@@ -1,7 +1,6 @@
-import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import value from '../../assets/json/countries.json';
-import countries from '../../assets/json/countries.json';
+import stations from '../../assets/json/countries.json';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-stations',
@@ -10,40 +9,17 @@ import countries from '../../assets/json/countries.json';
 })
 export class StationsComponent implements OnInit {
 
-  @Input() country:string = '';
+  @Input() country: any;
 
-  jsonDataResult: any;
+  selectedStation: any;
 
-  public stationList:{ name: string; station: string;}[] = countries;
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
-    this.jsonDataResult = countries;
-    console.log(this.jsonDataResult);
   }
-  // isExist(){
-  //   if(this.country){
-  //     return true;
-  //   }
-  //   else{
-  //     return false;
-  //   }
-  // }
 
-  // isFound(val: string){
-  //   if(this.jsonDataResult = val)
-  //   return true;
-  //   else
-  //   return false;
-  // }
-
-  show: boolean = false;
-  constructor(@Inject(DOCUMENT) private document: Document) { }
-
-  goToMarah(): void {
-      this.document.location.href = 'http://alhaneny.com:8056/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true';
+  chooseStation(value: any) {
+    this.selectedStation = value;
   }
-  goToBurg(): void {
-    this.document.location.href = 'http://alhaneny.com:8056/;stream.mp3&13202692901&duration=99999&id=scplayer&autostart=true';
-}
 
 }
