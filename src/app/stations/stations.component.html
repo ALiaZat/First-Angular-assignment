@@ -1,18 +1,36 @@
-<div style="text-align:center" class="list-group">
+<!-- <div style="text-align:center" class="list-group">
     <div *ngIf="country!=undefined">
-        <h2>
-            Stations list in {{ country.name }}
-        </h2>
-        <ul class="nav nav-pills ">
-            <li *ngFor="let station of country.stations " class="list-group-item list-group-item-action list-group-item-danger">
+        <h6>
+            Stations list in {{ country }}
+        </h6>
+        <ul>
+            <li *ngFor="let station of country.stations">
                 <h3>Stations : <button class="btn btn-secondary" (click)="chooseStation(station);">{{station.stationName}}</button></h3>
-        </li>
+            </li>
         </ul>
+        <select #station (change)="chooseStation(station.value);" >
+        <option>Choose Station</option>
+        <option *ngFor="let s of country.stations">{{s.stationName}}</option>
+    </select><br><br>
     </div>
+</div> -->
+
+<div *ngIf="country!=undefined" style="text-align:center" class="container-fluid">
+    <h6>
+        Stations list in {{ country }}
+    </h6><br>
+    <ul>
+        <li *ngFor="let station of country.stations">
+            <h3>Stations : <button class="btn btn-secondary" (click)="chooseStation(station);">{{station.stationName}}</button></h3>
+        </li>
+    </ul>
+    
 </div>
-<div class="main" *ngIf="selectedStation!=undefined">
-    <div>
+
+<!-- <div class="main" *ngIf="selectedStation!=undefined">
+    <div> 
         <h1>{{selectedStation.name}}</h1>
-        <audio width="300" height="32" controls="controls" autoplay="autoplay" [src]="selectedStation.stationSrc"></audio>
+        <audio width="300" height="32" controls="controls" autoplay="autoplay"
+            [src]="selectedStation.stationSrc"></audio>
     </div>
-</div>
+</div> -->

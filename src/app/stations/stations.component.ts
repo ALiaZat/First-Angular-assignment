@@ -20,6 +20,7 @@ export class StationsComponent implements OnInit {
 
   chooseStation(value: any) {
     this.selectedStation = value;
+    console.log(this.selectedStation);
   }
 
 }

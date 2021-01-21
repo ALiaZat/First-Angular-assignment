@@ -20,7 +20,7 @@ export class CountriesComponent implements OnInit {
     });
 
   }
-  choose(value: any) {
+  chooseCountry(value: any) {
     this.choosenCountry = value;
     console.log(this.choosenCountry);
   }
