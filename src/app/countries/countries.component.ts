@@ -8,11 +8,12 @@ import { DataService } from '../data.service';
 })
 export class CountriesComponent implements OnInit {
 
-  
+
   country: any;
   choosenCountry: any;
 
   constructor(private data: DataService) { }
+
   ngOnInit(): void {
     this.data.getCitiesAndStations().subscribe(d => {
       this.country = d;
@@ -20,10 +21,19 @@ export class CountriesComponent implements OnInit {
     });
 
   }
-  chooseCountry(value: any) {
-    this.choosenCountry = value;
-    console.log(this.choosenCountry);
-  }
 
+  // chooseCountry(value: any) {
+  //   this.choosenCountry = value;
+  //   console.log(this.choosenCountry);
+  // }
+
+  chooseCountry(event: any) {
+    for (let i = 0; i < this.country.length; i++) {
+      if (event.target.value == this.country[i].cityName) {
+        this.choosenCountry = this.country[i];
+        console.log(this.choosenCountry);
+      }
+    }
+  }
 
 }

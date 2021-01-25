@@ -8,11 +8,10 @@
             </h3>
         </li>
     </ul> -->
-    <select #city (change)="chooseCountry(city.value);" >
-        <option>Choose Country</option>
-        <option *ngFor="let c of country">{{c.name}}</option>
+    <select (change)='chooseCountry($event)'>
+        <option value='none' selected disabled hidden>Select a country</option>
+        <option *ngFor='let c of country' value='{{c.name}}'>{{c.name}}</option>
     </select><br><br>
-    <img src="../../assets/Images/playOnIcon.png"><br><br>
     
     <app-stations [country]="choosenCountry"></app-stations>
 </div>

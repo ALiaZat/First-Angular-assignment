@@ -17,15 +17,25 @@
 
 <div *ngIf="country!=undefined" style="text-align:center" class="container-fluid">
     <h6>
-        Stations list in {{ country }}
+        Stations list in {{ selectedStation }}
     </h6><br>
     <ul>
         <li *ngFor="let station of country.stations">
-            <h3>Stations : <button class="btn btn-secondary" (click)="chooseStation(station);">{{station.stationName}}</button></h3>
+            <h6>Stations : <button class="btn btn-secondary" (click)="chooseStation(station);">{{station.stationName}}</button></h6>
         </li>
     </ul>
     
 </div>
+
+<!-- <div class="main">
+    <div *ngIf="selectedCity!=undefined">
+        <br><button (click)="pauseAudio() "><p *ngIf="!state " class="fa ">&#xf04b;</p><p *ngIf="state " class="fa ">&#xf04c;</p></button><br>
+        <label>{{selectedCity.city}}</label>
+        <ul class="nav nav-pills ">
+            <li *ngFor=" let station of selectedCity.stations "><a style="color: black; " href="# " (click)="select(station); ">{{station.name}}</a></li>
+        </ul>
+    </div>
+</div> -->
 
 <!-- <div class="main" *ngIf="selectedStation!=undefined">
     <div> 
